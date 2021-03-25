@@ -13,6 +13,7 @@ dependencies:
 - patsy=0.5
 - requests=2.25
 - statsmodels=0.12
+- pybind11=2.5
 - pip:
   - pcst_fast==1.0.7
   - goenrich==1.7.0
