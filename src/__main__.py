@@ -40,8 +40,8 @@ pcsf_params.add_argument("-w", dest="w", nargs="*", type=float, required=False, 
     help="Omega: the weight of the edges connecting the dummy node to the nodes selected by dummyMode [default: 6]")
 pcsf_params.add_argument("-b", dest="b", nargs="*", type=float, required=False, default=1,
     help="Beta: scaling factor of prizes [default: 1]")
-pcsf_params.add_argument("-g", dest="g", nargs="*", type=float, required=False, default=20,
-    help="Gamma: multiplicative edge penalty from degree of endpoints [default: 20]")
+pcsf_params.add_argument("-g", dest="g", nargs="*", type=float, required=False, default=1,
+    help="Gamma: multiplicative edge penalty from degree of endpoints [default: 1]")
 pcsf_params.add_argument("-noise", dest="edge_noise", type=float, required=False, default=0.1,
     help="Standard Deviation of the gaussian noise added to edges in Noisy Edges Randomizations [default: 0.1]")
 pcsf_params.add_argument("--noisy_edges", dest='noisy_edges_repetitions', type=int, default=0,
