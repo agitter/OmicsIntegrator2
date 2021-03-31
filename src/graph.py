@@ -142,10 +142,10 @@ class Graph:
         Assert that the hyperparameters passed to this program are valid, otherwise raise helpful error messages.
         """
 
-        if not (isinstance(self.params.w, numbers.Number) and (self.params.w >= 0)): raise ValueError("parameter w must be a positive number. Was "+str(self.params.w))
-        if not (isinstance(self.params.b, numbers.Number) and (self.params.b >= 0)): raise ValueError("parameter b must be a positive number. Was "+str(self.params.b))
-        if not (isinstance(self.params.g, numbers.Number) and (self.params.g >= 0)): raise ValueError("parameter g must be a positive number. Was "+str(self.params.g))
-        if not (isinstance(self.params.edge_noise, numbers.Number) and (self.params.edge_noise >= 0)): raise ValueError("parameter edge_noise must be a positive number. Was "+str(self.params.edge_noise))
+        if not (isinstance(self.params.w, numbers.Number) and (self.params.w >= 0)): raise ValueError("parameter w must be a non-negative number. Was "+str(self.params.w))
+        if not (isinstance(self.params.b, numbers.Number) and (self.params.b >= 0)): raise ValueError("parameter b must be a non-negative number. Was "+str(self.params.b))
+        if not (isinstance(self.params.g, numbers.Number) and (self.params.g >= 0)): raise ValueError("parameter g must be a non-negative number. Was "+str(self.params.g))
+        if not (isinstance(self.params.edge_noise, numbers.Number) and (self.params.edge_noise >= 0)): raise ValueError("parameter edge_noise must be a non-negative number. Was "+str(self.params.edge_noise))
         if not (self.params.dummy_mode in ['terminals', 'other', 'all']): raise ValueError("parameter dummy_mode must be one of 'terminals', 'other', or 'all'. Was "+str(self.params.dummy_mode))
         if not (isinstance(self.params.seed, int)): raise ValueError("parameter seed must be a int. Was type "+str(type(self.params.seed)))
 
