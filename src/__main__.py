@@ -52,7 +52,8 @@ pcsf_params.add_argument("--dummyMode", dest='dummy_mode', choices=("terminals",
     help='Tells the program which nodes in the interactome to connect the dummy node to. "terminals"= connect to all terminals, "others"= connect to all nodes except for terminals, "all"= connect to all nodes in the interactome. [default: terminals]')
 pcsf_params.add_argument("-s", "--seed", dest='seed', type=int, required=False,
     help='An integer seed for the pseudo-random number generators. If you want to reproduce exact results, supply the same seed. [default: None]')
-
+pcsf_params.add_argument('-f', '--filename', dest='filename', type=str, required=False, default='graph',
+    help='Filename for the output graph files. File type extensions will be added automatically. [default; "graph"]')
 
 def output_dataframe_to_tsv(dataframe, output_dir, filename):
     path = os.path.join(os.path.abspath(output_dir), filename)
@@ -79,7 +80,9 @@ def main():
         forest, augmented_forest = graph.output_forest_as_networkx(vertex_indices, edge_indices)
 
     #oi.output_networkx_graph_as_graphml_for_cytoscape(augmented_forest, args.output_dir)
-    oi.output_networkx_graph_as_interactive_html(augmented_forest, args.output_dir)
+    oi.output_networkx_graph_as_interactive_html(augmented_forest, args.output_dir, args.filename+'.html')
+    augmented_forest_df = oi.get_networkx_graph_as_dataframe_of_edges(augmented_forest)
+    output_dataframe_to_tsv(augmented_forest_df, args.output_dir, args.filename+'.tsv')
 
 if __name__ == '__main__':
     main()
