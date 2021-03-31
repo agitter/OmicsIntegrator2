@@ -1,4 +1,4 @@
-# Ingore JL local files
+# Ignore JL local files
 data/*
 output/*
 src/testing**.ipynb
@@ -97,3 +97,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# PyCharm project settings
+.idea
