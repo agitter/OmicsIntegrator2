@@ -119,6 +119,9 @@ class Graph:
 
         # Overwrite the defaults with any user-specified parameters.
         self.params = Options({**defaults, **params})
+        # Avoid a rare numeric issue when g is an int
+        # See https://github.com/fraenkel-lab/OmicsIntegrator2/issues/110
+        self.params.g = float(self.params.g)
 
         if not self.params.skip_checks: self._check_validity_of_hyperparameters()
 
