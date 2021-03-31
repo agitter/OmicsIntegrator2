@@ -53,7 +53,7 @@ pcsf_params.add_argument("--dummyMode", dest='dummy_mode', choices=("terminals",
 pcsf_params.add_argument("-s", "--seed", dest='seed', type=int, required=False,
     help='An integer seed for the pseudo-random number generators. If you want to reproduce exact results, supply the same seed. [default: None]')
 pcsf_params.add_argument('-f', '--filename', dest='filename', type=str, required=False, default='graph',
-    help='Filename for the output graph files. File type extensions will be added automatically. [default; "graph"]')
+    help='Filename for the output graph files. File type extensions will be added automatically. [default: "graph"]')
 
 def output_dataframe_to_tsv(dataframe, output_dir, filename):
     path = os.path.join(os.path.abspath(output_dir), filename)

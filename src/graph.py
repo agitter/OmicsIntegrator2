@@ -865,7 +865,7 @@ def output_networkx_graph_as_graphml_for_cytoscape(nxgraph, output_dir=".", file
     return path.resolve()
 
 
-def output_networkx_graph_as_interactive_html(nxgraph, attribute_metadata=dict(), output_dir=".", filename="graph.html"):
+def output_networkx_graph_as_interactive_html(nxgraph, output_dir=".", filename="graph.html"):
     """
     Arguments:
         nxgraph (networkx.Graph): any instance of networkx.Graph
