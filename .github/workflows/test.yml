@@ -7,6 +7,7 @@ jobs:
     name: Test Omics Integrator 2
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
     steps:
@@ -22,6 +23,9 @@ jobs:
       - name: Install Omics Integrator 2
         shell: bash --login {0}
         run: pip install .
+      - name: Display packages
+        shell: bash --login {0}
+        run: conda list
       - name: Run test cases
         shell: bash --login {0}
         run: python test/test_graph.py
