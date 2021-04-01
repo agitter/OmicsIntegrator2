@@ -1,0 +1,30 @@
+name: Test
+on:
+- push
+- pull_request
+jobs:
+  Test:
+    name: Test Omics Integrator 2
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install conda environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: oi2
+          environment-file: environment.yml
+          auto-activate-base: false
+          miniconda-version: 'latest'
+      - name: Install Omics Integrator 2
+        shell: bash --login {0}
+        run: pip install .
+      - name: Run test cases
+        shell: bash --login {0}
+        run: python test/test_graph.py
+      - name: Test command line interface
+        shell: bash --login {0}
+        run: OmicsIntegrator -e interactomes/inbiomap.9.12.2016.exp.oi2 -p example/example_prizes.tsv -o .

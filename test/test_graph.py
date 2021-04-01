@@ -12,8 +12,7 @@ import numpy as np
 import pandas as pd
 import networkx as nx
 
-sys.path.insert(0,'/Users/alex/Documents/OmicsIntegrator2/src')
-import graph as oi
+import OmicsIntegrator.graph as oi
 oi.logger.setLevel(logging.WARNING)
 
 # TODO: try disconnected interactome
