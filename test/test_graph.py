@@ -81,7 +81,9 @@ class Test_Oi2(object):
         with pytest.raises(ValueError): reset({'b': "1"})
 
         with pytest.raises(ValueError): reset({'g': -1})
-        with pytest.raises(ValueError): reset({'g': "1"})
+        with pytest.raises(ValueError): reset({'g': "a"})
+        # g is now stored as a float
+        #with pytest.raises(ValueError): reset({'g': "1"})
 
         with pytest.raises(ValueError): reset({'edge_noise': -1})
         with pytest.raises(ValueError): reset({'edge_noise': "1"})
@@ -98,7 +100,8 @@ class Test_Oi2(object):
 
         assert self.graph.params.w == params['w']
         assert self.graph.params.b == params['b']
-        assert self.graph.params.g == params['g']
+        # g is now stored as a float
+        assert self.graph.params.g == float(params['g'])
         assert self.graph.params.edge_noise == params['edge_noise']
         assert self.graph.params.dummy_mode == params['dummy_mode']
         assert self.graph.params.seed == params['seed']
