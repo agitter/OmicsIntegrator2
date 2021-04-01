@@ -31,4 +31,4 @@ jobs:
         run: python test/test_graph.py
       - name: Test command line interface
         shell: bash --login {0}
-        run: OmicsIntegrator -e interactomes/inbiomap.9.12.2016.exp.oi2 -p example/example_prizes.tsv -o .
+        run: OmicsIntegrator -e test/oi2-edges.txt -p test/oi2-prizes.txt -o .
