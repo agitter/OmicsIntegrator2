@@ -827,6 +827,13 @@ def get_networkx_graph_as_dataframe_of_edges(nxgraph):
         pd.DataFrame: edges from the input graph and their attributes as a dataframe
     """
 
+    # Before exporting the graph, remove edge attributes 'protein1' and 'protein2'
+    # See https://github.com/fraenkel-lab/OmicsIntegrator2/issues/113
+    for p1, p2, d in nxgraph.edges(data=True):
+        # Remove this attribute from the dictionary and do not throw an error if the key is missing
+        d.pop('protein1', None)
+        d.pop('protein2', None)
+
     return nx.to_pandas_edgelist(nxgraph, 'protein1', 'protein2')
 
 
