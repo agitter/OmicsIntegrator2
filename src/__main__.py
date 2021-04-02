@@ -36,12 +36,12 @@ io_params.add_argument('-o', '--output', dest='output_dir', action=FullPaths, ty
 # Command parameters (specify what the algorithm does):
 pcsf_params = parser.add_argument_group("PCSF Parameters")
 
-pcsf_params.add_argument("-w", dest="w", type=float, required=False, default=6,
-    help="Omega: the weight of the edges connecting the dummy node to the nodes selected by dummyMode [default: 6]")
+pcsf_params.add_argument("-w", dest="w", type=float, required=False, default=5,
+    help="Omega: the weight of the edges connecting the dummy node to the nodes selected by dummyMode [default: 5]")
 pcsf_params.add_argument("-b", dest="b", type=float, required=False, default=1,
     help="Beta: scaling factor of prizes [default: 1]")
-pcsf_params.add_argument("-g", dest="g", type=float, required=False, default=1,
-    help="Gamma: multiplicative edge penalty from degree of endpoints [default: 1]")
+pcsf_params.add_argument("-g", dest="g", type=float, required=False, default=3,
+    help="Gamma: multiplicative edge penalty from degree of endpoints [default: 3]")
 pcsf_params.add_argument("-noise", dest="edge_noise", type=float, required=False, default=0.1,
     help="Standard Deviation of the gaussian noise added to edges in Noisy Edges Randomizations [default: 0.1]")
 pcsf_params.add_argument("--noisy_edges", dest='noisy_edges_repetitions', type=int, default=0,
